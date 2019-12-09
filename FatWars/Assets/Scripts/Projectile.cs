@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public CharacterController character; 
+    private Vector3 firingPoint;
 
-    void OnCollisionEnter(Collision collision)
-    {
-        //Destroy this gameobject
-        if(collision.gameObject.tag == "wall")
-        {
-            Destroy(gameObject);
-        }
-        if(collision.gameObject.tag == "player")
-        {
-            //Physics.IgnoreCollision(character.GetComponent<Collider>(), collision.collider);
-        }
-        
-    }
+    [SerializeField]
+    private float projectileSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5.0f);
+        firingPoint = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        MoveProjectile();
+    }
+
+    void OnCollisionEnter()
+    {
+        Debug.Log("hit");
+        Destroy(gameObject);
+    }
+
+    void MoveProjectile()
+    {
+        transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
     }
 }
