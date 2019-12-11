@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : Mirror.NetworkBehaviour
 {
     private Vector3 firingPoint;
 
@@ -18,13 +18,15 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer) return;
         MoveProjectile();
     }
 
+    [Mirror.Server]
     void OnCollisionEnter()
     {
-        Debug.Log("hit");
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        Mirror.NetworkServer.Destroy(gameObject);
     }
 
     void MoveProjectile()

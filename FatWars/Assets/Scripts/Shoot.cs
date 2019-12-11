@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Shoot : Mirror.NetworkBehaviour
 {
     [SerializeField]
     Transform firePoint;
@@ -21,10 +21,10 @@ public class Shoot : MonoBehaviour
 
     }
 
-
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer) return;
 
         if(Input.GetButtonDown("Fire1"))
         {
@@ -37,9 +37,11 @@ public class Shoot : MonoBehaviour
              
     }
 
+    [Mirror.Command]
     void ShootProjectile()
     {
         Instantiate(projectile, firePoint.position, firePoint.rotation);
+        Mirror.NetworkServer.Spawn(projectile);
     }
 }
 

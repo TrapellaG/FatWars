@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Movement : MonoBehaviour
+public class Movement : Mirror.NetworkBehaviour
 {
     [SerializeField]
     private  float movementSpeed = 6.0f;
@@ -16,6 +17,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer) return;
+
         playerMovement();
         Rotation(); 
     }
@@ -45,6 +48,12 @@ public class Movement : MonoBehaviour
         if(collision.gameObject.tag == "projectile")
         {
             transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+
+            if(transform.localScale.x >= 2)
+            {
+                //Destroy(gameObject);
+                Mirror.NetworkServer.Destroy(gameObject);
+            }
         }
     }
 
