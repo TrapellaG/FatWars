@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 63174090}
   - component: {fileID: 63174089}
   - component: {fileID: 63174088}
-  - component: {fileID: 63174087}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -265,21 +264,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &63174087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63174086}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54367ef9ce6c5914d8ae60a55e0398f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targetOffset: {x: 0, y: 5.53, z: 0}
-  movementSpeed: 1
 --- !u!81 &63174088
 AudioListener:
   m_ObjectHideFlags: 0
@@ -945,12 +929,13 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 4
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 5525901329760330803, guid: 3c8f0ba448aba2745b07697ecbdd7dc8,
+  playerPrefab: {fileID: 3810584563927189680, guid: 497fcbb8cbd53f54dbbfde4f96819cb2,
     type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 1735918783279430201, guid: 2a5d689e7003eb4439990a2d170d604f, type: 3}
+  - {fileID: 8641955283707055652, guid: dec277531cd3cc74385cd6297bdee972, type: 3}
 --- !u!1 &738572202
 GameObject:
   m_ObjectHideFlags: 0

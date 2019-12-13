@@ -6,16 +6,22 @@ public class CameraControler : MonoBehaviour
 {
 
     [SerializeField]
-    private Transform target;
+    public Transform target;
     [SerializeField]
-    private Vector3 targetOffset; //distance between the target and the camera
+    public Vector3 targetOffset; //distance between the target and the camera
     [SerializeField]
-    private float movementSpeed; 
+    private float movementSpeed;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         
+    }
+    void Start()
+    {
+       
+        transform.position = target.position + targetOffset;// (target.position - transform.position).normalized * 5.0f;
+        //target = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame

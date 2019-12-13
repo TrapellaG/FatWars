@@ -18,14 +18,12 @@ public class Projectile : Mirror.NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isLocalPlayer) return;
         MoveProjectile();
     }
 
     [Mirror.Server]
     void OnCollisionEnter()
     {
-        //Destroy(gameObject);
         Mirror.NetworkServer.Destroy(gameObject);
     }
 
@@ -33,4 +31,5 @@ public class Projectile : Mirror.NetworkBehaviour
     {
         transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
     }
+
 }
