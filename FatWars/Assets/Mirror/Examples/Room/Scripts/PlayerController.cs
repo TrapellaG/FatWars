@@ -13,7 +13,7 @@ namespace Mirror.Examples.NetworkRoom
             if (characterController == null)
                 characterController = GetComponent<CharacterController>();
         }
-
+        
         public override void OnStartLocalPlayer()
         {
             base.OnStartLocalPlayer();

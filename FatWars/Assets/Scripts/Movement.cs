@@ -16,26 +16,33 @@ public class Movement : Mirror.NetworkBehaviour
 
     [SerializeField]
     float firingSpeed;
+    //float rotationSpeed = 100;
 
     private Camera mycam;
 
     public Camera cameraPrefab;
 
+    public GameObject player;
+
     private float lastTimeShoot = 0;
 
-    private void Awake()
+    private void Start()
     {
-        mycam = Instantiate(cameraPrefab);
-        mycam.GetComponent<CameraControler>().target = transform;
+        if (isLocalPlayer)
+        {
+            mycam = Instantiate(cameraPrefab);
+            mycam.GetComponent<CameraControler>().target = transform;
+        }
+        else
+        {
+            GetComponent<Movement>().enabled = false;
+
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
 
-    // Update is called once per frame
+
+    // Update is called once per frame   
     void Update()
     {
 
@@ -59,12 +66,6 @@ public class Movement : Mirror.NetworkBehaviour
         transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        
-        
-    }
 
     void Rotation()
     {
@@ -82,8 +83,9 @@ public class Movement : Mirror.NetworkBehaviour
     {
         if(collision.gameObject.tag == "projectile")
         {
+            Debug.Log("hit");
             transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
-
+            
             if(transform.localScale.x >= 2)
             {
                 Mirror.NetworkServer.Destroy(gameObject);
@@ -97,14 +99,9 @@ public class Movement : Mirror.NetworkBehaviour
         if (lastTimeShoot + firingSpeed <= Time.time)
         {
             lastTimeShoot = Time.time;
-            ShootProjectile();
-        }
-    }
-
-    void ShootProjectile()
-    {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        Mirror.NetworkServer.Spawn(projectile);
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            Mirror.NetworkServer.Spawn(projectile, player);
+        }   
     }
 
 }

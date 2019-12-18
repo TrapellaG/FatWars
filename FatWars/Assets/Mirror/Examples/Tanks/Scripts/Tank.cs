@@ -17,8 +17,17 @@ namespace Mirror.Examples.Tanks
         public GameObject projectilePrefab;
         public Transform projectileMount;
 
+        private void Awake()
+        {
+        }
+        private void Start()
+        {
+            if (isLocalPlayer) Debug.Log("LOL");
+        }
         void Update()
         {
+            
+
             // movement for local player
             if (!isLocalPlayer) return;
 
