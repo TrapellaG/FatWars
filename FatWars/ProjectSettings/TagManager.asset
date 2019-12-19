@@ -6,6 +6,8 @@ TagManager:
   tags:
   - wall
   - projectile
+  - player1
+  - push
   layers:
   - Default
   - TransparentFX

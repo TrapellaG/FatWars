@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : Mirror.NetworkBehaviour
+public class Projectile : MonoBehaviour
 {
     private Vector3 firingPoint;
 
@@ -21,10 +21,9 @@ public class Projectile : Mirror.NetworkBehaviour
         MoveProjectile();
     }
 
-    [Mirror.Server]
     void OnCollisionEnter()
     {
-        Mirror.NetworkServer.Destroy(gameObject);
+       Destroy(gameObject);
     }
 
     void MoveProjectile()
