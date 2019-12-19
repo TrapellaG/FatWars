@@ -16,7 +16,6 @@ public class Movement : Mirror.NetworkBehaviour
 
     [SerializeField]
     float firingSpeed;
-    //float rotationSpeed = 100;
 
     private Camera mycam;
 
@@ -53,7 +52,7 @@ public class Movement : Mirror.NetworkBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            fire();
+            CmdFire();
         }
     }
 
@@ -94,13 +93,13 @@ public class Movement : Mirror.NetworkBehaviour
     }
 
     [Mirror.Command]
-    void fire()
+    void CmdFire()
     {
         if (lastTimeShoot + firingSpeed <= Time.time)
         {
             lastTimeShoot = Time.time;
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            Mirror.NetworkServer.Spawn(projectile, player);
+            Mirror.NetworkServer.Spawn(projectile);
         }   
     }
 
