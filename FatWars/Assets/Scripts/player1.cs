@@ -78,6 +78,11 @@ public class player1 : MonoBehaviour
             this.gameObject.tag = "player1";
         }
 
+        if(this.transform.position.y <= -5)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void playerMovement()
