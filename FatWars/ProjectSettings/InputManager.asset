@@ -99,7 +99,7 @@ InputManager:
     snap: 1
     invert: 1
     type: 2
-    axis: 0
+    axis: 1
     joyNum: 2
   - serializedVersion: 3
     m_Name: VerticalPlayer3
@@ -306,7 +306,7 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 2
+    type: 0
     axis: 0
     joyNum: 2
   - serializedVersion: 3
