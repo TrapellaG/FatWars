@@ -26,7 +26,8 @@ public class player3 : MonoBehaviour
     public float pushcooldown = 0;
     public string pushLVL;
     float dashTime = 1f;
-    float pushed = 300;
+    public float pushed = 300;
+    int pushCount = 0;
 
     float xAxis;
     float yAxis;
@@ -61,7 +62,7 @@ public class player3 : MonoBehaviour
         {
             if (pushactive == true)
             {
-                pushcooldown = 5f;
+                pushcooldown = 2f;
                 Push();
             }
         }
@@ -76,6 +77,11 @@ public class player3 : MonoBehaviour
         if (dashTime <= 0)
         {
             this.gameObject.tag = "player1";
+        }
+
+        if (this.transform.position.y <= -5)
+        {
+            Destroy(gameObject);
         }
 
     }
@@ -130,6 +136,20 @@ public class player3 : MonoBehaviour
             Debug.Log("hit");
             transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
             force += 200;
+            pushCount++;
+
+            if (pushCount == 1)
+            {
+                pushLVL = "pushLVL2";
+            }
+            if (pushCount == 2)
+            {
+                pushLVL = "pushLVL3";
+            }
+            if (pushCount == 3)
+            {
+                pushLVL = "pushLVL4";
+            }
 
             if (transform.localScale.x >= 2)
             {
@@ -137,7 +157,7 @@ public class player3 : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "push")
+        if (collision.gameObject.tag == "pushLVL1" || collision.gameObject.tag == "pushLVL2" || collision.gameObject.tag == "pushLVL3" || collision.gameObject.tag == "pushLVL4")
         {
             switch (collision.gameObject.tag)
             {

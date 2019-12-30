@@ -1036,6 +1036,7 @@ MonoBehaviour:
   pushactive: 1
   pushcooldown: 0
   pushLVL: 
+  pushed: 300
 --- !u!1 &688869751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1164,7 @@ MonoBehaviour:
   firePoint: {fileID: 263321333}
   projectilePrefab: {fileID: 1735918783279430201, guid: 2a5d689e7003eb4439990a2d170d604f,
     type: 3}
-  firingSpeed: 0
+  firingSpeed: 2
   rotationSpeed: 4
   joystickDeadzone: 0.2
   force: 300
@@ -1171,6 +1172,7 @@ MonoBehaviour:
   pushactive: 1
   pushcooldown: 0
   pushLVL: 
+  pushed: 300
 --- !u!1 &824819763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844714569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.71, y: 1.5, z: -21.53}
+  m_LocalPosition: {x: 8.16, y: 1.5, z: -8.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 602808304}
@@ -1336,6 +1338,7 @@ MonoBehaviour:
   pushactive: 1
   pushcooldown: 0
   pushLVL: 
+  pushed: 300
 --- !u!1 &876009803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1940,7 @@ MonoBehaviour:
   firePoint: {fileID: 824819764}
   projectilePrefab: {fileID: 1735918783279430201, guid: 2a5d689e7003eb4439990a2d170d604f,
     type: 3}
-  firingSpeed: 0
+  firingSpeed: 2
   rotationSpeed: 4
   joystickDeadzone: 0.2
   force: 300
@@ -1945,6 +1948,7 @@ MonoBehaviour:
   pushactive: 1
   pushcooldown: 0
   pushLVL: 
+  pushed: 300
 --- !u!136 &1675825014
 CapsuleCollider:
   m_ObjectHideFlags: 0

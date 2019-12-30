@@ -8,6 +8,10 @@ TagManager:
   - projectile
   - player1
   - push
+  - pushLVL1
+  - pushLVL2
+  - pushLVL3
+  - pushLVL4
   layers:
   - Default
   - TransparentFX

@@ -26,7 +26,8 @@ public class player1 : MonoBehaviour
     public float pushcooldown = 0;
     public string pushLVL;
     float dashTime = 1f;
-    float pushed = 300;
+    public float pushed = 300;
+    int pushCount = 0;
 
     float xAxis;
     float yAxis;
@@ -61,7 +62,7 @@ public class player1 : MonoBehaviour
         {       
             if(pushactive == true)
             {
-                pushcooldown = 5f;
+                pushcooldown = 2f;
                 Push();
             }
         }
@@ -113,36 +114,35 @@ public class player1 : MonoBehaviour
          }*/
     }
 
-    void Push()
-    {
-        dashTime = 1f;
-
-        dash = true;
-        this.gameObject.tag = "push";
-
-        float horizontal = Input.GetAxis("HorizontalPlayer1");
-        float vertical = Input.GetAxis("VerticalPlayer1");
-
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
-        this.GetComponent<Rigidbody>().AddForce(movement * force);
-
-    }
-
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "projectile")
+        if (collision.gameObject.tag == "projectile")
         {
             Debug.Log("hit");
             transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
             force += 200;
-            
-            if(transform.localScale.x >= 2)
+            pushCount++;
+
+            if(pushCount == 1)
             {
-               Destroy(gameObject);
+                pushLVL = "pushLVL2";
+            }
+            if (pushCount == 2)
+            {
+                pushLVL = "pushLVL3";
+            }
+            if (pushCount == 3)
+            {
+                pushLVL = "pushLVL4";
+            }
+
+            if (transform.localScale.x >= 2)
+            {
+                Destroy(gameObject);
             }
         }
-        
-        if(collision.gameObject.tag == "push")
+
+        if (collision.gameObject.tag == "pushLVL1" || collision.gameObject.tag == "pushLVL2" || collision.gameObject.tag == "pushLVL3" || collision.gameObject.tag == "pushLVL4")
         {
             switch (collision.gameObject.tag)
             {
@@ -172,6 +172,23 @@ public class player1 : MonoBehaviour
             Debug.Log("wow");
         }
     }
+
+    void Push()
+    {
+        dashTime = 1f;
+
+        dash = true;
+        this.gameObject.tag = pushLVL;
+
+        float horizontal = Input.GetAxis("HorizontalPlayer1");
+        float vertical = Input.GetAxis("VerticalPlayer1");
+
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+        this.GetComponent<Rigidbody>().AddForce(movement * force);
+
+    }
+
+    
 
     void CmdFire()
     {
