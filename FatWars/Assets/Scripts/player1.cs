@@ -28,6 +28,8 @@ public class player1 : MonoBehaviour
     float dashTime = 1f;
     public float pushed = 300;
     int pushCount = 0;
+    public bool move = true;
+    public float moveCooldown;
 
     float xAxis;
     float yAxis;
@@ -42,8 +44,11 @@ public class player1 : MonoBehaviour
     // Update is called once per frame   
     void Update()
     {
-        playerMovement();
-        Rotation();
+        if (move == true)
+        {
+            playerMovement();
+            Rotation();
+        }
 
         dashTime -= Time.smoothDeltaTime;
         pushcooldown -= Time.smoothDeltaTime;
@@ -65,6 +70,16 @@ public class player1 : MonoBehaviour
                 pushcooldown = 2f;
                 Push();
             }
+        }
+
+        if(move == false)
+        {
+            moveCooldown -= Time.smoothDeltaTime;
+        }
+        if(moveCooldown <= 0)
+        {
+            move = true;
+            moveCooldown = 2f;
         }
 
         if(dash == true)
@@ -144,6 +159,8 @@ public class player1 : MonoBehaviour
 
         if (collision.gameObject.tag == "pushLVL1" || collision.gameObject.tag == "pushLVL2" || collision.gameObject.tag == "pushLVL3" || collision.gameObject.tag == "pushLVL4")
         {
+            move = false;
+
             switch (collision.gameObject.tag)
             {
                 case "pushLVL1":

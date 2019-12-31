@@ -12,6 +12,9 @@ TagManager:
   - pushLVL2
   - pushLVL3
   - pushLVL4
+  - player2
+  - player3
+  - player4
   layers:
   - Default
   - TransparentFX

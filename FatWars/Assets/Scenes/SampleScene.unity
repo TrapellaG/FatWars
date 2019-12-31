@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 197517326}
   m_Layer: 0
   m_Name: column
-  m_TagString: wall
+  m_TagString: projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,6 +1037,8 @@ MonoBehaviour:
   pushcooldown: 0
   pushLVL: 
   pushed: 300
+  move: 1
+  moveCooldown: 0
 --- !u!1 &688869751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &688869752
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1173,6 +1175,8 @@ MonoBehaviour:
   pushcooldown: 0
   pushLVL: 
   pushed: 300
+  move: 1
+  moveCooldown: 0
 --- !u!1 &824819763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &844714570
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1339,6 +1343,8 @@ MonoBehaviour:
   pushcooldown: 0
   pushLVL: 
   pushed: 300
+  move: 1
+  moveCooldown: 0
 --- !u!1 &876009803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,6 +1955,8 @@ MonoBehaviour:
   pushcooldown: 0
   pushLVL: 
   pushed: 300
+  move: 1
+  moveCooldown: 0
 --- !u!136 &1675825014
 CapsuleCollider:
   m_ObjectHideFlags: 0
