@@ -63,7 +63,7 @@ public class player1 : MonoBehaviour
             CmdFire();
         }
 
-        if(Input.GetButtonDown("Fire3"))
+        if(Input.GetButtonDown("Fire3P1"))
         {       
             if(pushactive == true)
             {
@@ -112,13 +112,14 @@ public class player1 : MonoBehaviour
 
     void Rotation()
     {
-        if (Mathf.Abs(Input.GetAxis("HorizontalPlayer1")) >= joystickDeadzone || Mathf.Abs(Input.GetAxis("VerticalPlayer1")) >= joystickDeadzone)
+        if (Mathf.Abs(Input.GetAxis("HorizontalAIMPlayer1")) >= joystickDeadzone || Mathf.Abs(Input.GetAxis("VerticalAIMPlayer1")) >= joystickDeadzone)
         {
-            xAxis = Input.GetAxis("HorizontalPlayer1");
-            yAxis = Input.GetAxis("VerticalPlayer1");
+            xAxis = Input.GetAxis("HorizontalAIMPlayer1");
+            yAxis = Input.GetAxis("VerticalAIMPlayer1");
         }
+
         float joystickAngle = Mathf.Atan2(xAxis, yAxis) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, joystickAngle, 0), Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, (joystickAngle + 90), 0), Time.deltaTime * rotationSpeed);
 
         /* RaycastHit hit;
          Ray ray = mycam.ScreenPointToRay(Input.mousePosition);

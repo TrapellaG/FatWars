@@ -63,7 +63,7 @@ public class player4 : MonoBehaviour
             CmdFire();
         }
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3P4"))
         {
             if (pushactive == true)
             {
@@ -111,13 +111,13 @@ public class player4 : MonoBehaviour
 
     void Rotation()
     {
-        if (Mathf.Abs(Input.GetAxis("HorizontalPlayer4")) >= joystickDeadzone || Mathf.Abs(Input.GetAxis("VerticalPlayer4")) >= joystickDeadzone)
+        if (Mathf.Abs(Input.GetAxis("HorizontalAIMPlayer4")) >= joystickDeadzone || Mathf.Abs(Input.GetAxis("VerticalAIMPlayer4")) >= joystickDeadzone)
         {
-            xAxis = Input.GetAxis("HorizontalPlayer4");
-            yAxis = Input.GetAxis("VerticalPlayer4");
+            xAxis = Input.GetAxis("HorizontalAIMPlayer4");
+            yAxis = Input.GetAxis("VerticalAIMPlayer4");
         }
         float joystickAngle = Mathf.Atan2(xAxis, yAxis) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, joystickAngle, 0), Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, (joystickAngle + 90), 0), Time.deltaTime * rotationSpeed);
 
         /* RaycastHit hit;
          Ray ray = mycam.ScreenPointToRay(Input.mousePosition);
@@ -133,7 +133,7 @@ public class player4 : MonoBehaviour
         dashTime = 1f;
 
         dash = true;
-        this.gameObject.tag = "push";
+        this.gameObject.tag = pushLVL;
 
         float horizontal = Input.GetAxis("HorizontalPlayer4");
         float vertical = Input.GetAxis("VerticalPlayer4");

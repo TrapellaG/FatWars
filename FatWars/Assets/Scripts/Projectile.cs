@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         MoveProjectile();
+        Destroy(gameObject, 3);
     }
 
     void OnCollisionEnter()
