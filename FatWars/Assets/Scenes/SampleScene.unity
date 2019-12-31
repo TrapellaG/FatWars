@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 197517326}
   m_Layer: 0
   m_Name: column
-  m_TagString: projectile
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1057,7 +1057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &688869752
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   firePoint: {fileID: 263321333}
   projectilePrefab: {fileID: 1735918783279430201, guid: 2a5d689e7003eb4439990a2d170d604f,
     type: 3}
-  firingSpeed: 2
+  firingSpeed: 0
   rotationSpeed: 4
   joystickDeadzone: 0.2
   force: 300
@@ -1223,7 +1223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &844714570
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1940,7 +1940,7 @@ MonoBehaviour:
   firePoint: {fileID: 824819764}
   projectilePrefab: {fileID: 1735918783279430201, guid: 2a5d689e7003eb4439990a2d170d604f,
     type: 3}
-  firingSpeed: 2
+  firingSpeed: 0
   rotationSpeed: 4
   joystickDeadzone: 0.2
   force: 300
