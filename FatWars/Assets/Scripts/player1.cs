@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class player1 : MonoBehaviour
 {
@@ -23,19 +24,23 @@ public class player1 : MonoBehaviour
     public float force = 300f;
     public bool dash = false;
     public bool pushactive = true;
-    public float pushcooldown = 0;
+    public float pushcooldown = 2f;
     public string pushLVL;
     float dashTime = 1f;
     public float pushed = 300;
     int pushCount = 0;
     public bool move = true;
     public float moveCooldown;
+    public Slider sliderP1;
+   
 
     float xAxis;
     float yAxis;
 
     private void Start()
     {
+        sliderP1.maxValue = 2;
+        sliderP1.value = 2;
         pushLVL = "pushLVL1";
     }
 
@@ -52,9 +57,11 @@ public class player1 : MonoBehaviour
 
         dashTime -= Time.smoothDeltaTime;
         pushcooldown -= Time.smoothDeltaTime;
+        sliderP1.value += Time.smoothDeltaTime;
 
         if (pushcooldown <= 0)
         {
+            pushcooldown = 0;
             pushactive = true;
         }
 
@@ -67,8 +74,9 @@ public class player1 : MonoBehaviour
         {       
             if(pushactive == true)
             {
+                sliderP1.value = 0;
                 pushcooldown = 2f;
-                Push();
+                Push();     
             }
         }
 
@@ -82,9 +90,8 @@ public class player1 : MonoBehaviour
             moveCooldown = 2f;
         }
 
-        if(dash == true)
+       if(dash == true)
         {
-            dash = false;
             pushactive = false;
             
         }
@@ -92,6 +99,7 @@ public class player1 : MonoBehaviour
         if (dashTime <= 0)
         {
             this.gameObject.tag = "player1";
+            dash = false;
         }
 
         if(this.transform.position.y <= -5)
