@@ -110,10 +110,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 915, y: 348}
-  m_MaxSize: {x: 22010, y: 10024}
+  m_MinSize: {x: 917, y: 348}
+  m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 198
+  controlID: 206
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 947
-  m_MinSize: {x: 915, y: 348}
-  m_MaxSize: {x: 22010, y: 10024}
+  m_MinSize: {x: 917, y: 348}
+  m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 199
+  controlID: 207
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 348}
   m_MaxSize: {x: 8008, y: 8048}
   vertical: 1
-  controlID: 200
+  controlID: 153
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 224}
   m_MaxSize: {x: 8008, y: 4024}
   vertical: 0
-  controlID: 201
+  controlID: 154
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -290,8 +290,8 @@ MonoBehaviour:
     y: 714
     width: 1243
     height: 233
-  m_MinSize: {x: 104, y: 124}
-  m_MaxSize: {x: 4004, y: 4024}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 20}
@@ -317,8 +317,8 @@ MonoBehaviour:
     y: 0
     width: 277
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -442,20 +442,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\gerard.campos\Desktop\FatWars\FatWars
+  m_LastProjectPath: C:\Users\glutamaco\Documents\GitHub\FatWars\FatWars
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 178}
-    m_SelectedIDs: 6c120000
-    m_LastClickedID: 4716
-    m_ExpandedIDs: 00000000460b00008c0b0000480c0000ba0c0000d60c00002a0d0000720d0000d00d00001c0e0000100f0000480f0000061100000a110000301100007e11000004120000141200001c12000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 4c430000
+    m_LastClickedID: 17228
+    m_ExpandedIDs: 000000004c43000068430000cc4300000a4400001a4400004e44000074440000ae440000d4440000504500006c4500002c460000304600004246000068460000c0460000ca460000d046000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -483,7 +483,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000460b00008c0b0000480c0000ba0c0000d60c00002a0d0000720d0000d00d00001c0e0000100f0000480f0000061100000a110000301100007e11000004120000141200001c120000
+    m_ExpandedIDs: 000000004c43000068430000cc4300000a4400001a4400004e44000074440000ae440000d4440000504500006c4500002c460000304600004246000068460000c0460000ca460000d0460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,9 +567,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: d6fbffff301400006a140000
+      m_SelectedIDs: f6bbffff
+      m_LastClickedID: -17418
+      m_ExpandedIDs: aabbffff24bcffff6a480000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -624,9 +624,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.1813684, y: 30.52126, z: -41.907578}
+    m_Target: {x: 0.72958624, y: 30.270924, z: -42.10628}
     speed: 2
-    m_Value: {x: 1.1813684, y: 30.52126, z: -41.907578}
+    m_Value: {x: 0.72958624, y: 30.270924, z: -42.10628}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -654,13 +654,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.34389877, y: 0.019944934, z: 0.00049052306, w: 0.9387948}
+    m_Target: {x: 0.35089365, y: 0.007308054, z: 0.005078317, w: 0.936373}
     speed: 2
-    m_Value: {x: 0.34389877, y: 0.019944934, z: 0.00049052306, w: 0.9387948}
+    m_Value: {x: 0.35089368, y: 0.0073080542, z: 0.0050783176, w: 0.93637305}
   m_Size:
-    m_Target: 22
+    m_Target: 17.4759
     speed: 2
-    m_Value: 22
+    m_Value: 17.4759
   m_Ortho:
     m_Target: 0
     speed: 2
