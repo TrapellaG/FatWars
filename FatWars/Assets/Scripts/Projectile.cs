@@ -22,8 +22,13 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, 3);
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision col)
     {
+        if(col.gameObject.tag == "burger")
+        {
+             Physics.IgnoreLayerCollision(this.gameObject.layer, col.gameObject.layer = 11);
+        }
+
        Destroy(gameObject);
     }
 

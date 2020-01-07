@@ -32,6 +32,10 @@ public class player4 : MonoBehaviour
     public bool move = true;
     public float moveCooldown;
     public Slider sliderP4;
+    public int bullets;
+    public Image burger1;
+    public Image burger2;
+    public Image burger3;
 
     float xAxis;
     float yAxis;
@@ -41,6 +45,9 @@ public class player4 : MonoBehaviour
         sliderP4.maxValue = 2;
         sliderP4.value = 2;
         pushLVL = "pushLVL1";
+        bullets = 3;
+        rotationSpeed = 8f;
+        movementSpeed = 8f;
     }
 
 
@@ -66,7 +73,10 @@ public class player4 : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1Player4"))
         {
-            CmdFire();
+            if (bullets > 0)
+            {
+                CmdFire();
+            }
         }
 
         if (Input.GetButtonDown("Fire3P4"))
@@ -104,6 +114,31 @@ public class player4 : MonoBehaviour
         if (this.transform.position.y <= -5)
         {
             Destroy(gameObject);
+        }
+
+        if (bullets == 0)
+        {
+            burger1.enabled = false;
+            burger2.enabled = false;
+            burger3.enabled = false;
+        }
+        if (bullets == 1)
+        {
+            burger1.enabled = true;
+            burger2.enabled = false;
+            burger3.enabled = false;
+        }
+        if (bullets == 2)
+        {
+            burger1.enabled = true;
+            burger2.enabled = true;
+            burger3.enabled = false;
+        }
+        if (bullets == 3)
+        {
+            burger1.enabled = true;
+            burger2.enabled = true;
+            burger3.enabled = true;
         }
     }
 
@@ -152,6 +187,15 @@ public class player4 : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "burger")
+        {
+            if (bullets < 3)
+            {
+                bullets++;
+                Destroy(collision.gameObject);
+            }
+        }
+
         if (collision.gameObject.tag == "projectile")
         {
             Debug.Log("hit");
@@ -216,6 +260,7 @@ public class player4 : MonoBehaviour
     {
         if (lastTimeShoot + firingSpeed <= Time.time)
         {
+            bullets--;
             lastTimeShoot = Time.time;
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         }

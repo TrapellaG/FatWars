@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class player1 : MonoBehaviour
 {
     [SerializeField]
-    private  float movementSpeed = 6.0f;
+    private  float movementSpeed = 8f;
 
     [SerializeField]
     Transform firePoint;
@@ -19,7 +19,7 @@ public class player1 : MonoBehaviour
     float firingSpeed;
 
     private float lastTimeShoot = 0;
-    public float rotationSpeed = 4f;
+    public float rotationSpeed = 8f;
     public float joystickDeadzone = 0.2f;
     public float force = 300f;
     public bool dash = false;
@@ -32,6 +32,11 @@ public class player1 : MonoBehaviour
     public bool move = true;
     public float moveCooldown;
     public Slider sliderP1;
+    public int bullets;
+    public Image burger1;
+    public Image burger2;
+    public Image burger3;
+    public GameObject burger;
    
 
     float xAxis;
@@ -42,6 +47,9 @@ public class player1 : MonoBehaviour
         sliderP1.maxValue = 2;
         sliderP1.value = 2;
         pushLVL = "pushLVL1";
+        bullets = 3;
+        rotationSpeed = 8f;
+        movementSpeed = 8f;
     }
 
 
@@ -67,7 +75,10 @@ public class player1 : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1Player1"))
         {
-            CmdFire();
+            if(bullets > 0)
+            {
+                CmdFire();
+            }      
         }
 
         if(Input.GetButtonDown("Fire3P1"))
@@ -107,6 +118,32 @@ public class player1 : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        if (bullets == 0)
+        {
+            burger1.enabled = false;
+            burger2.enabled = false;
+            burger3.enabled = false;
+        }
+        if (bullets == 1)
+        {
+            burger1.enabled = true;
+            burger2.enabled = false;
+            burger3.enabled = false;
+        }
+        if (bullets == 2)
+        {
+            burger1.enabled = true;
+            burger2.enabled = true;
+            burger3.enabled = false;
+        }
+        if (bullets == 3)
+        {
+            burger1.enabled = true;
+            burger2.enabled = true;
+            burger3.enabled = true;
+        }
+
     }
 
     void playerMovement()
@@ -140,6 +177,20 @@ public class player1 : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.tag == "burger")
+        {
+            /*if(bullets == 3)
+            {
+                Physics.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer = 11);
+            }*/
+
+            if (bullets < 3)
+            {
+                bullets++;
+                Destroy(collision.gameObject);
+            }
+        }
+
         if (collision.gameObject.tag == "projectile")
         {
             Debug.Log("hit");
@@ -220,6 +271,7 @@ public class player1 : MonoBehaviour
     {
         if (lastTimeShoot + firingSpeed <= Time.time)
         {
+            bullets--;
             lastTimeShoot = Time.time;
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         }   
