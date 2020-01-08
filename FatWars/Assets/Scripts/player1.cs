@@ -37,7 +37,9 @@ public class player1 : MonoBehaviour
     public Image burger2;
     public Image burger3;
     public GameObject burger;
-   
+    public AudioSource fart;
+    public AudioSource shoot;
+
 
     float xAxis;
     float yAxis;
@@ -48,8 +50,8 @@ public class player1 : MonoBehaviour
         sliderP1.value = 2;
         pushLVL = "pushLVL1";
         bullets = 3;
-        rotationSpeed = 8f;
-        movementSpeed = 8f;
+        rotationSpeed = 6f;
+        movementSpeed = 10f;
     }
 
 
@@ -77,6 +79,7 @@ public class player1 : MonoBehaviour
         {
             if(bullets > 0)
             {
+                shoot.Play();
                 CmdFire();
             }      
         }
@@ -85,6 +88,7 @@ public class player1 : MonoBehaviour
         {       
             if(pushactive == true)
             {
+                fart.Play();
                 sliderP1.value = 0;
                 pushcooldown = 2f;
                 Push();     
@@ -144,6 +148,11 @@ public class player1 : MonoBehaviour
             burger3.enabled = true;
         }
 
+        if (bullets == 3)
+        {
+            //Physics.IgnoreLayerCollision(this.gameObject.layer, burger.gameObject.layer = 11);
+        }
+
     }
 
     void playerMovement()
@@ -151,7 +160,11 @@ public class player1 : MonoBehaviour
         float horizontal = Input.GetAxis("HorizontalPlayer1");
         float vertical = Input.GetAxis("VerticalPlayer1");
         Vector3 movement = new Vector3(horizontal, 0, vertical);
-        transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
+
+        if (movement.magnitude >= 0.5f)
+        {
+            transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
+        }
     }
 
 
@@ -166,27 +179,15 @@ public class player1 : MonoBehaviour
         float joystickAngle = Mathf.Atan2(xAxis, yAxis) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, (joystickAngle + 90), 0), Time.deltaTime * rotationSpeed);
 
-        /* RaycastHit hit;
-         Ray ray = mycam.ScreenPointToRay(Input.mousePosition);
-
-         if(Physics.Raycast(ray, out hit))
-         {
-             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-         }*/
     }
 
     void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "burger")
-        {
-            /*if(bullets == 3)
+    {       
+        if (collision.gameObject.tag == "burger")
+        {       
+            if(bullets < 3)
             {
-                Physics.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer = 11);
-            }*/
-
-            if (bullets < 3)
-            {
-                bullets++;
+                bullets = 3;
                 Destroy(collision.gameObject);
             }
         }

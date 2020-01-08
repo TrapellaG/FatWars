@@ -11,4 +11,13 @@ public class burger : MonoBehaviour
     {
         this.transform.Rotate(0, 2, 0, Space.Self);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 11)
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("burger destroyed");
+        }
+    }
 }

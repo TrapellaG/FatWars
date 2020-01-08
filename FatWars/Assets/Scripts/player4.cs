@@ -36,6 +36,8 @@ public class player4 : MonoBehaviour
     public Image burger1;
     public Image burger2;
     public Image burger3;
+    public AudioSource fart;
+    public AudioSource shoot;
 
     float xAxis;
     float yAxis;
@@ -75,6 +77,7 @@ public class player4 : MonoBehaviour
         {
             if (bullets > 0)
             {
+                shoot.Play();
                 CmdFire();
             }
         }
@@ -83,6 +86,7 @@ public class player4 : MonoBehaviour
         {
             if (pushactive == true)
             {
+                fart.Play();
                 sliderP4.value = 0;
                 pushcooldown = 2f;
                 Push();
@@ -147,7 +151,11 @@ public class player4 : MonoBehaviour
         float horizontal = Input.GetAxis("HorizontalPlayer4");
         float vertical = Input.GetAxis("VerticalPlayer4");
         Vector3 movement = new Vector3(horizontal, 0, vertical);
-        transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
+
+        if (movement.magnitude >= 0.5f)
+        {
+            transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
+        }
     }
 
 
@@ -191,7 +199,7 @@ public class player4 : MonoBehaviour
         {
             if (bullets < 3)
             {
-                bullets++;
+                bullets = 3;
                 Destroy(collision.gameObject);
             }
         }

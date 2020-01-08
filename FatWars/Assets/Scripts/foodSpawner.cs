@@ -43,7 +43,7 @@ public class foodSpawner : MonoBehaviour
     private void spawnFood()
     {
         spawn = false;
-        spawnCooldown = 6f;
+        spawnCooldown = 5f;
         float randomLocation = Random.Range(1, 11);
 
         if(randomLocation == 1)
