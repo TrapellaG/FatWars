@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 348}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 205
+  controlID: 2260
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 348}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 206
+  controlID: 2261
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 348}
   m_MaxSize: {x: 8008, y: 8048}
   vertical: 1
-  controlID: 152
+  controlID: 2262
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_MinSize: {x: 408, y: 224}
   m_MaxSize: {x: 8008, y: 4024}
   vertical: 0
-  controlID: 153
+  controlID: 2263
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -235,8 +235,8 @@ MonoBehaviour:
     y: 0
     width: 228
     height: 714
-  m_MinSize: {x: 204, y: 224}
-  m_MaxSize: {x: 4004, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -290,8 +290,8 @@ MonoBehaviour:
     y: 714
     width: 1358
     height: 233
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 104, y: 124}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 20}
@@ -317,8 +317,8 @@ MonoBehaviour:
     y: 0
     width: 277
     height: 947
-  m_MinSize: {x: 277, y: 74}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -442,20 +442,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\glutamaco\Documents\GitHub\FatWars\FatWars
+  m_LastProjectPath: C:\Users\gerard.campos\Desktop\FatWars\FatWars
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 5a430000
-    m_LastClickedID: 17242
-    m_ExpandedIDs: 000000005a43000076430000dc4300001a4400002a4400005e44000086440000c0440000e6440000624500007e4500004046000044460000564600007c460000d4460000de460000e446000000ca9a3b
+    scrollPos: {x: 0, y: 194}
+    m_SelectedIDs: 84120000
+    m_LastClickedID: 4740
+    m_ExpandedIDs: 000000004a0b0000920b0000560c0000ca0c0000e60c00003a0d0000840d0000e20d00002e0e0000220f00005a0f00001e1100002211000048110000961100001c1200002c1200003412000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -483,7 +483,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a43000076430000dc4300001a4400002a4400005e44000086440000c0440000e6440000624500007e4500004046000044460000564600007c460000d4460000de460000e4460000
+    m_ExpandedIDs: 000000004a0b0000920b0000560c0000ca0c0000e60c00003a0d0000840d0000e20d00002e0e0000220f00005a0f00001e1100002211000048110000961100001c1200002c1200003412000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -569,7 +569,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d4bbffff
+      m_ExpandedIDs: 26d5ffff48d5ffffd4d6ffffd6fbffff1a1400009c140000dc14000014150000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -624,9 +624,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.065966, y: -31.15388, z: 67.48328}
+    m_Target: {x: -2.0850391, y: -27.605701, z: 69.07797}
     speed: 2
-    m_Value: {x: -5.065966, y: -31.15388, z: 67.48328}
+    m_Value: {x: -2.0850391, y: -27.605701, z: 69.07797}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -654,13 +654,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.20083097, y: 0.026782347, z: -0.012968334, w: -0.9791739}
+    m_Target: {x: -0.18918908, y: 0.016628938, z: -0.010660193, w: -0.981742}
     speed: 2
-    m_Value: {x: -0.20083097, y: 0.026782347, z: -0.012968334, w: -0.9791739}
+    m_Value: {x: -0.18918908, y: 0.016628938, z: -0.010660193, w: -0.981742}
   m_Size:
-    m_Target: 184.14613
+    m_Target: 164.64124
     speed: 2
-    m_Value: 184.14613
+    m_Value: 164.64124
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 18610
+  m_LastSelectedObjectID: 22584
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52

@@ -39,6 +39,10 @@ public class player1 : MonoBehaviour
     public GameObject burger;
     public AudioSource fart;
     public AudioSource shoot;
+    public AudioSource eat;
+    public AudioSource pickFood;
+    public AudioSource hit;
+    public AudioSource die;
 
 
     float xAxis;
@@ -52,6 +56,7 @@ public class player1 : MonoBehaviour
         bullets = 3;
         rotationSpeed = 6f;
         movementSpeed = 10f;
+        this.GetComponent<Collider>().enabled = true;
     }
 
 
@@ -102,7 +107,7 @@ public class player1 : MonoBehaviour
         if(moveCooldown <= 0)
         {
             move = true;
-            moveCooldown = 2f;
+            moveCooldown = 1f;
         }
 
        if(dash == true)
@@ -148,11 +153,6 @@ public class player1 : MonoBehaviour
             burger3.enabled = true;
         }
 
-        if (bullets == 3)
-        {
-            //Physics.IgnoreLayerCollision(this.gameObject.layer, burger.gameObject.layer = 11);
-        }
-
     }
 
     void playerMovement()
@@ -163,6 +163,8 @@ public class player1 : MonoBehaviour
 
         if (movement.magnitude >= 0.5f)
         {
+            //eee
+
             transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
         }
     }
@@ -187,6 +189,7 @@ public class player1 : MonoBehaviour
         {       
             if(bullets < 3)
             {
+                pickFood.Play();
                 bullets = 3;
                 Destroy(collision.gameObject);
             }
@@ -194,7 +197,7 @@ public class player1 : MonoBehaviour
 
         if (collision.gameObject.tag == "projectile")
         {
-            Debug.Log("hit");
+            eat.Play();
             transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
             force += 200;
             pushCount++;
@@ -214,13 +217,17 @@ public class player1 : MonoBehaviour
 
             if (transform.localScale.x >= 2)
             {
-                Destroy(gameObject);
+                die.Play();
+                move = false;
+                this.GetComponent<Collider>().enabled = false;
+                Invoke("Die", 1.5f);
             }
         }
 
         if (collision.gameObject.tag == "pushLVL1" || collision.gameObject.tag == "pushLVL2" || collision.gameObject.tag == "pushLVL3" || collision.gameObject.tag == "pushLVL4")
         {
             move = false;
+            hit.Play();
 
             switch (collision.gameObject.tag)
             {
@@ -249,6 +256,11 @@ public class player1 : MonoBehaviour
             this.GetComponent<Rigidbody>().AddForce(movement * pushed);
             Debug.Log("wow");
         }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     void Push()
