@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerManager : MonoBehaviour
 {
@@ -13,6 +14,16 @@ public class playerManager : MonoBehaviour
     bool ok2 = true;
     bool ok3 = true;
     bool ok4 = true;
+
+    public GameObject panel;
+    public AudioSource music;
+    public Text winner;
+
+    public void PlayAgain()
+    {
+        panel.active = false;
+        Application.LoadLevel(Application.loadedLevel);
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,20 +54,23 @@ public class playerManager : MonoBehaviour
         {
             if (player1 != null)
             {
-                Debug.Log("player1 wins");
+                winner.text = "player 1 wins";
             }
             if (player2 != null)
             {
-                Debug.Log("player2 wins");
+                winner.text = "player 2 wins";
             }
             if (player3 != null)
             {
-                Debug.Log("player3 wins");
+                winner.text = "player 3 wins";
             }
             if (player4 != null)
             {
-                Debug.Log("player4 wins");
+                winner.text = "player 4 wins";
             }
+
+            panel.active = true;
+            music.gameObject.active = false;
         }
     }
 }
