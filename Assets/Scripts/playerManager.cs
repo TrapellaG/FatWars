@@ -16,8 +16,12 @@ public class playerManager : MonoBehaviour
     bool ok4 = true;
 
     public GameObject panel;
+    public GameObject pausePanel;
     public AudioSource music;
     public Text winner;
+    public Button exitToMenuF;
+    public Button exitToMenuP;
+    public Button resume;
 
     public void PlayAgain()
     {
@@ -25,9 +29,33 @@ public class playerManager : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
     }
 
+    public void ExitToMenu()
+    {
+        Application.LoadLevel(0);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        pausePanel.active = false;
+        music.Play();
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.active = true;
+        music.Pause();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("escape"))
+        {
+            PauseGame();
+        }
+
         if(player1 == null && ok1 == true)
         {
             ok1 = false;
