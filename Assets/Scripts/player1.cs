@@ -174,11 +174,12 @@ public class player1 : MonoBehaviour
         {
             xAxis = Input.GetAxis("HorizontalAIMPlayer1");
             yAxis = Input.GetAxis("VerticalAIMPlayer1");
+
+            float joystickAngle = Mathf.Atan2(xAxis, yAxis) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, (joystickAngle + 90), 0), Time.deltaTime * rotationSpeed);
         }
 
-        float joystickAngle = Mathf.Atan2(xAxis, yAxis) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, (joystickAngle + 90), 0), Time.deltaTime * rotationSpeed);
-
+        
     }
 
     void OnCollisionEnter(Collision collision)

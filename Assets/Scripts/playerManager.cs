@@ -10,18 +10,57 @@ public class playerManager : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
     public int players = 4;
+
     bool ok1 = true;
     bool ok2 = true;
     bool ok3 = true;
     bool ok4 = true;
 
     public GameObject panel;
+    public GameObject playersPanel;
+    public GameObject panleBurger;
     public GameObject pausePanel;
     public AudioSource music;
     public Text winner;
     public Button exitToMenuF;
     public Button exitToMenuP;
     public Button resume;
+
+    public ChatacterManager playermanager;
+
+    public void Start()
+    {
+        GameObject camera = GameObject.Find("MainCamera");
+        playermanager = camera.GetComponent<ChatacterManager>();
+
+        Time.timeScale = 0;
+        panleBurger.active = false;
+        music.Pause();
+        panel.active = false;
+    }
+
+    public void SelectCharactersDone()
+    {
+        if (playermanager.numPlayers < 4)
+        {
+            Destroy(player4);
+
+            if (playermanager.numPlayers < 3)
+            {
+                Destroy(player3);
+
+                if (playermanager.numPlayers < 2)
+                {
+                    Destroy(player2);
+                }
+            }
+        }
+
+        Time.timeScale = 1f;
+        panleBurger.active = true;
+        playersPanel.active = false;
+        music.Play();
+    }
 
     public void PlayAgain()
     {
@@ -51,7 +90,7 @@ public class playerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("escape"))
+        if(Input.GetKeyDown("pause"))
         {
             PauseGame();
         }
@@ -98,6 +137,7 @@ public class playerManager : MonoBehaviour
             }
 
             panel.active = true;
+            panleBurger.active = false;
             music.gameObject.active = false;
         }
     }
